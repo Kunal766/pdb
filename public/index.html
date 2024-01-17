@@ -110,6 +110,8 @@
                     }
                     getItemById(id).then(data => {
                         console.log(data)
+                        text = data.pdb_text
+                        Sequence = data.pdb_sequence;
                         crn1 = ChemDoodle.readPDB(data.pdb_text);
                         ribbonTransformer.loadMolecule(crn1);
                         Sequence = data.pdb_sequence;
