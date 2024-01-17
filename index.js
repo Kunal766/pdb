@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require("body-parser");
 const path = require('path');
 require('dotenv').config();
 
@@ -7,6 +8,8 @@ require('dotenv').config();
 const app = express();
 a();
 async function a() {
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
     app.use(express.static(path.join(__dirname, 'public')));
 
